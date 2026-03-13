@@ -418,85 +418,142 @@
     </div>
   </div>
 
-  <!-- SECTION 2: Rank-Up Rates -->
+    <!-- SECTION 2: Rank-Up Rates -->
   <div class="section">
     <div class="section-title">2. Rank-Up Outcome Rates</div>
     <div class="info-box">
-      Each tool use rolls a <strong>single outcome</strong>: Rank 3, Rank 2, or Rank 1 — directly.
-      There is no step-by-step upgrade. The item's rank is set to whatever the roll lands on.
-      Grade-specific tools massively increase the chance of hitting Rank 1.
+      Each tool use rolls one outcome: <strong>stay / upgrade</strong> — there is no downgrade or failure.
+      Because of this, the effective Rank 2 → 1 rate is calculated from a smaller pool (excluding the Rank 3 weight).<br><br>
+      <strong>Note:</strong> These rates are estimated from raw XML weighted values (<code>3RankProb / 2RankProb / 1RankProb</code>).
+      The exact server implementation is unconfirmed, but this model is consistent with observed behavior.
     </div>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Tool</th>
-            <th>Item ID</th>
-            <th>→ Rank 3</th>
-            <th>→ Rank 2</th>
-            <th>→ Rank 1</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Reforging Tool</td>
-            <td class="mono">85571</td>
-            <td>99.90%</td>
-            <td>0.10%</td>
-            <td>0.001%</td>
-            <td class="note-cell">NPC Shop / Initial use</td>
-          </tr>
-          <tr>
-            <td>Fine Reforging Tool</td>
-            <td class="mono">85565</td>
-            <td>99.90%</td>
-            <td>0.10%</td>
-            <td>0.001%</td>
-            <td class="note-cell">Standard cash tool</td>
-          </tr>
-          <tr>
-            <td>Credne's Reforging Tool</td>
-            <td class="mono">85567</td>
-            <td>90.74%</td>
-            <td>9.07%</td>
-            <td class="highlight">0.181%</td>
-            <td class="note-cell">~180× higher R1 vs Fine</td>
-          </tr>
-          <tr style="border-top: 1px solid var(--border-gold);">
-            <td><span class="badge badge-r">Grade R Tool</span></td>
-            <td class="mono">40010001 / 11</td>
-            <td>94.34%</td>
-            <td>4.72%</td>
-            <td class="highlight">0.943%</td>
-            <td class="note-cell">~940× higher R1 vs Fine</td>
-          </tr>
-          <tr>
-            <td><span class="badge badge-sr">Grade SR Tool</span></td>
-            <td class="mono">40010002 / 12</td>
-            <td>94.34%</td>
-            <td>4.72%</td>
-            <td class="highlight">0.943%</td>
-            <td class="note-cell">~940× higher R1 vs Fine</td>
-          </tr>
-          <tr>
-            <td><span class="badge badge-ssr">Grade SSR Tool</span></td>
-            <td class="mono">40010003 / 13 / 05</td>
-            <td>94.34%</td>
-            <td>4.72%</td>
-            <td class="highlight">0.943%</td>
-            <td class="note-cell">~940× higher R1 vs Fine</td>
-          </tr>
-          <tr>
-            <td><span class="badge badge-ur">Grade UR Tool</span></td>
-            <td class="mono">40010004 / 14 / 06</td>
-            <td>89.62%</td>
-            <td>9.44%</td>
-            <td class="highlight">0.944%</td>
-            <td class="note-cell">Better R2 rate than R/SR/SSR</td>
-          </tr>
-        </tbody>
-      </table>
+
+    <div style="margin-bottom:24px;">
+      <div class="section-title" style="font-size:13px; margin-bottom:12px;">From Rank 3</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Tool</th>
+              <th>Item ID</th>
+              <th>Stay R3</th>
+              <th>→ Rank 2</th>
+              <th>→ Rank 1</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Basic Reforging Tool</td>
+              <td class="mono">85565</td>
+              <td>99.90%</td>
+              <td>0.10%</td>
+              <td>0.001%</td>
+            </tr>
+            <tr>
+              <td>Fine Reforging Tool</td>
+              <td class="mono">85566</td>
+              <td>95.19%</td>
+              <td>4.76%</td>
+              <td>0.048%</td>
+            </tr>
+            <tr>
+              <td>Credne's Reforging Tool</td>
+              <td class="mono">85567</td>
+              <td>90.74%</td>
+              <td>9.07%</td>
+              <td>0.181%</td>
+            </tr>
+            <tr style="border-top: 1px solid var(--border-gold);">
+              <td><span class="badge badge-r">Grade R Tool</span></td>
+              <td class="mono">40010001 / 11</td>
+              <td>94.34%</td>
+              <td>4.72%</td>
+              <td class="highlight">0.943%</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-sr">Grade SR Tool</span></td>
+              <td class="mono">40010002 / 12</td>
+              <td>94.34%</td>
+              <td>4.72%</td>
+              <td class="highlight">0.943%</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-ssr">Grade SSR Tool</span></td>
+              <td class="mono">40010003 / 13 / 05</td>
+              <td>94.34%</td>
+              <td>4.72%</td>
+              <td class="highlight">0.943%</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-ur">Grade UR Tool</span></td>
+              <td class="mono">40010004 / 14 / 06</td>
+              <td>89.62%</td>
+              <td>9.44%</td>
+              <td class="highlight">0.944%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title" style="font-size:13px; margin-bottom:12px;">From Rank 2 <span style="font-weight:400; color:var(--text-dim); font-size:11px;">(no downgrade — Rank 3 weight excluded from pool)</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Tool</th>
+              <th>Item ID</th>
+              <th>Stay R2</th>
+              <th>→ Rank 1</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Basic Reforging Tool</td>
+              <td class="mono">85565</td>
+              <td>99.01%</td>
+              <td class="highlight">0.99%</td>
+            </tr>
+            <tr>
+              <td>Fine Reforging Tool</td>
+              <td class="mono">85566</td>
+              <td>99.01%</td>
+              <td class="highlight">0.99%</td>
+            </tr>
+            <tr>
+              <td>Credne's Reforging Tool</td>
+              <td class="mono">85567</td>
+              <td>98.04%</td>
+              <td class="highlight">1.96%</td>
+            </tr>
+            <tr style="border-top: 1px solid var(--border-gold);">
+              <td><span class="badge badge-r">Grade R Tool</span></td>
+              <td class="mono">40010001 / 11</td>
+              <td>83.33%</td>
+              <td class="highlight">16.67%</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-sr">Grade SR Tool</span></td>
+              <td class="mono">40010002 / 12</td>
+              <td>83.33%</td>
+              <td class="highlight">16.67%</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-ssr">Grade SSR Tool</span></td>
+              <td class="mono">40010003 / 13 / 05</td>
+              <td>83.33%</td>
+              <td class="highlight">16.67%</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-ur">Grade UR Tool</span></td>
+              <td class="mono">40010004 / 14 / 06</td>
+              <td>90.91%</td>
+              <td class="highlight">9.09%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 
@@ -542,7 +599,7 @@
         <div class="cat-header">
           <span class="cat-icon dot-combat"></span>
           <span class="cat-title">Combat / Melee</span>
-          <span class="cat-count">6 skills</span>
+          <span class="cat-count">5 skills</span>
         </div>
         <div class="cat-body">
           <div class="skill-row">
@@ -588,6 +645,37 @@
           <div class="skill-row">
             <details>
               <summary>
+                <span class="skill-name">Critical Hit</span>
+                <span class="skill-vars">Var1</span>
+              </summary>
+              <div class="var-def">
+                <span><span class="var-key">Var1</span>: Critical hit bonus</span>
+              </div>
+            </details>
+          </div>
+          <div class="skill-row">
+            <details>
+              <summary>
+                <span class="skill-name">Berserk</span>
+                <span class="skill-vars">Var2</span>
+              </summary>
+              <div class="var-def">
+                <span><span class="var-key">Var2</span>: (rolled)</span>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-header">
+          <span class="cat-icon dot-combat"></span>
+          <span class="cat-title">Combat / Ranged</span>
+          <span class="cat-count">4 skills</span>
+        </div>
+        <div class="cat-body">
+          <div class="skill-row">
+            <details>
+              <summary>
                 <span class="skill-name">Magnum Shot</span>
                 <span class="skill-vars">Var4, 5</span>
               </summary>
@@ -600,7 +688,7 @@
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Throw Attack</span>
+                <span class="skill-name">Throwing Attack</span>
                 <span class="skill-vars">Var5</span>
               </summary>
               <div class="var-def">
@@ -613,11 +701,28 @@
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Critical Hit</span>
-                <span class="skill-vars">Var1</span>
+                <span class="skill-name">Arrow Revolver</span>
+                <span class="skill-vars">Var1, 2, 3</span>
               </summary>
               <div class="var-def">
-                <span><span class="var-key">Var1</span>: Critical hit bonus</span>
+                <span><span class="var-key">Var1</span>: 1st shot damage</span><br>
+                <span><span class="var-key">Var2</span>: Last shot damage</span><br>
+                <span><span class="var-key">Var3</span>: Aim buff for 1st shot</span>
+              </div>
+            </details>
+          </div>
+          <div class="skill-row">
+            <details>
+              <summary>
+                <span class="skill-name">Crash Shot</span>
+                <span class="skill-vars">Var1, 2, 3, 4, 5</span>
+              </summary>
+              <div class="var-def">
+                <span><span class="var-key">Var1</span>: Initial missile damage</span><br>
+                <span><span class="var-key">Var2</span>: Fragment damage</span><br>
+                <span><span class="var-key">Var3</span>: Initial target fragment damage (%)</span><br>
+                <span><span class="var-key">Var4</span>: Explosion radius</span><br>
+                <span><span class="var-key">Var5</span>: Max fragment targets</span>
               </div>
             </details>
           </div>
@@ -688,7 +793,7 @@
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">ClaimhSolas Dash Attack</span>
+                <span class="skill-name">Claimh Solas Dash</span>
                 <span class="skill-vars">Var2, 3, 4, 5</span>
               </summary>
               <div class="var-def">
@@ -740,7 +845,7 @@
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Lightningroad</span>
+                <span class="skill-name">Lightning Rod</span>
                 <span class="skill-vars">Var1, 2, 4, 5</span>
               </summary>
               <div class="var-def">
@@ -907,13 +1012,13 @@
         <div class="cat-header">
           <span class="cat-icon dot-alchemy"></span>
           <span class="cat-title">Alchemy</span>
-          <span class="cat-count">4 skills</span>
+          <span class="cat-count">6 skills</span>
         </div>
         <div class="cat-body">
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Flamer</span>
+                <span class="skill-name">Flame Burst</span>
                 <span class="skill-vars">Var4, 7</span>
               </summary>
               <div class="var-def">
@@ -964,6 +1069,35 @@
               </div>
             </details>
           </div>
+          <div class="skill-row">
+            <details>
+              <summary>
+                <span class="skill-name">Water Cannon</span>
+                <span class="skill-vars">Var1, 2, 3, 5</span>
+              </summary>
+              <div class="var-def">
+                <span><span class="var-key">Var1</span>: Min damage</span><br>
+                <span><span class="var-key">Var2</span>: Max damage</span><br>
+                <span><span class="var-key">Var3</span>: Range</span><br>
+                <span><span class="var-key">Var5</span>: Additional damage</span>
+              </div>
+            </details>
+          </div>
+          <div class="skill-row">
+            <details>
+              <summary>
+                <span class="skill-name">Shock</span>
+                <span class="skill-vars">Var1, 2, 3, 4, 6</span>
+              </summary>
+              <div class="var-def">
+                <span><span class="var-key">Var1</span>: Duration</span><br>
+                <span><span class="var-key">Var2</span>: Discharge radius</span><br>
+                <span><span class="var-key">Var3</span>: Shock min damage</span><br>
+                <span><span class="var-key">Var4</span>: Shock max damage</span><br>
+                <span><span class="var-key">Var6</span>: Stun time</span>
+              </div>
+            </details>
+          </div>
         </div>
       </div>
 
@@ -978,7 +1112,7 @@
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Shuriken Charging</span>
+                <span class="skill-name">Charging Shuriken</span>
                 <span class="skill-vars">Var1, 2, 3, 5</span>
               </summary>
               <div class="var-def">
@@ -992,7 +1126,7 @@
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Shuriken Storm</span>
+                <span class="skill-name">Kunai Rush</span>
                 <span class="skill-vars">Var1</span>
               </summary>
               <div class="var-def">
@@ -1005,7 +1139,7 @@
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Shadow Binding</span>
+                <span class="skill-name">Shadow Bind</span>
                 <span class="skill-vars">Var1, 2</span>
               </summary>
               <div class="var-def">
@@ -1018,7 +1152,7 @@
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Cherry Blossom Wind</span>
+                <span class="skill-name">Sakura Shower</span>
                 <span class="skill-vars">Var1, 2</span>
               </summary>
               <div class="var-def">
@@ -1032,7 +1166,7 @@
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Shadow Bunshin</span>
+                <span class="skill-name">Doppelganger</span>
                 <span class="skill-vars">Var1, 7</span>
               </summary>
               <div class="var-def">
@@ -1110,13 +1244,13 @@
         <div class="cat-header">
           <span class="cat-icon dot-puppet"></span>
           <span class="cat-title">Puppeteer</span>
-          <span class="cat-count">8 skills</span>
+          <span class="cat-count">9 skills</span>
         </div>
         <div class="cat-body">
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Marionette Control</span>
+                <span class="skill-name">Control Marionette</span>
                 <span class="skill-vars">Var5</span>
               </summary>
               <div class="var-def">
@@ -1163,28 +1297,31 @@
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Act 2: Threshold Cutter</span>
-                <span class="skill-vars">Var1, 3, 4, 5</span>
+                <span class="skill-name">Act 1: Inciting Incident</span>
+                <span class="skill-vars">Var1, 2, 3, 4, 10</span>
               </summary>
               <div class="var-def">
-                <span><span class="var-key">Var1</span>: 1st hit damage multiplier</span><br>
-                <span><span class="var-key">Var3</span>: Cast time reduction</span><br>
-                <span><span class="var-key">Var4</span>: 2nd hit damage multiplier</span><br>
-                <span><span class="var-key">Var5</span>: 3rd hit damage</span>
+                <span><span class="var-key">Var1</span>: Damage</span><br>
+                <span><span class="var-key">Var2</span>: Stun time (sec)</span><br>
+                <span><span class="var-key">Var3</span>: Range</span><br>
+                <span><span class="var-key">Var4</span>: Cooldown time</span><br>
+                <span><span class="var-key">Var10</span>: Spirit Gauge increase (%)</span>
               </div>
             </details>
           </div>
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Act 1: Inciting Incident</span>
-                <span class="skill-vars">Var3, 4</span>
+                <span class="skill-name">Act 2: Threshold Cutter</span>
+                <span class="skill-vars">Var1, 2, 3, 4, 5, 10</span>
               </summary>
               <div class="var-def">
-                <span><span class="var-key">Var1</span>: Damage</span><br>
-                <span><span class="var-key">Var2</span>: Stun time</span><br>
-                <span><span class="var-key">Var3</span>: Range</span><br>
-                <span><span class="var-key">Var4</span>: Cast time reduction</span>
+                <span><span class="var-key">Var1</span>: 1st hit damage</span><br>
+                <span><span class="var-key">Var2</span>: Additional critical chance (%)</span><br>
+                <span><span class="var-key">Var3</span>: Cooldown</span><br>
+                <span><span class="var-key">Var4</span>: 2nd hit damage</span><br>
+                <span><span class="var-key">Var5</span>: 3rd hit damage</span><br>
+                <span><span class="var-key">Var10</span>: Spirit Gauge increase (%)</span>
               </div>
             </details>
           </div>
@@ -1192,12 +1329,13 @@
             <details>
               <summary>
                 <span class="skill-name">Act 4: Rising Action</span>
-                <span class="skill-vars">Var3</span>
+                <span class="skill-vars">Var1, 2, 3, 10</span>
               </summary>
               <div class="var-def">
                 <span><span class="var-key">Var1</span>: Damage</span><br>
                 <span><span class="var-key">Var2</span>: Radius</span><br>
-                <span><span class="var-key">Var3</span>: CDR</span>
+                <span><span class="var-key">Var3</span>: Cooldown time</span><br>
+                <span><span class="var-key">Var10</span>: Spirit Gauge increase (%)</span>
               </div>
             </details>
           </div>
@@ -1205,14 +1343,19 @@
             <details>
               <summary>
                 <span class="skill-name">Act 6: Crisis</span>
-                <span class="skill-vars">Var4</span>
+                <span class="skill-vars">Var1–9, 10</span>
               </summary>
               <div class="var-def">
                 <span><span class="var-key">Var1</span>: Damage</span><br>
                 <span><span class="var-key">Var2</span>: Radius</span><br>
                 <span><span class="var-key">Var3</span>: Load time</span><br>
-                <span><span class="var-key">Var4</span>: CDR</span><br>
-                <span><span class="var-key">Var5</span>: Provoke duration</span>
+                <span><span class="var-key">Var4</span>: Cooldown</span><br>
+                <span><span class="var-key">Var5</span>: Provoke duration</span><br>
+                <span><span class="var-key">Var6</span>: Provoke CP limit</span><br>
+                <span><span class="var-key">Var7</span>: Marionette buff duration (sec)</span><br>
+                <span><span class="var-key">Var8</span>: Marionette bonus defense</span><br>
+                <span><span class="var-key">Var9</span>: Marionette bonus protection</span><br>
+                <span><span class="var-key">Var10</span>: Spirit Gauge increase (%)</span>
               </div>
             </details>
           </div>
@@ -1220,25 +1363,42 @@
             <details>
               <summary>
                 <span class="skill-name">Act 7: Climactic Crash</span>
-                <span class="skill-vars">Var4</span>
+                <span class="skill-vars">Var1, 2, 3, 4, 10</span>
               </summary>
               <div class="var-def">
                 <span><span class="var-key">Var1</span>: Damage</span><br>
                 <span><span class="var-key">Var2</span>: Charge width</span><br>
                 <span><span class="var-key">Var3</span>: Load time</span><br>
-                <span><span class="var-key">Var4</span>: CDR</span>
+                <span><span class="var-key">Var4</span>: Cooldown time</span><br>
+                <span><span class="var-key">Var10</span>: Spirit Gauge increase (%)</span>
+              </div>
+            </details>
+          </div>
+          <div class="skill-row">
+            <details>
+              <summary>
+                <span class="skill-name">Act 9: Invigorating Encore</span>
+                <span class="skill-vars">Var1, 2, 3, 4, 5, 6</span>
+              </summary>
+              <div class="var-def">
+                <span><span class="var-key">Var1</span>: Puppet min damage bonus while active</span><br>
+                <span><span class="var-key">Var2</span>: Puppet max damage bonus while active</span><br>
+                <span><span class="var-key">Var3</span>: Duration</span><br>
+                <span><span class="var-key">Var4</span>: Act skill loading speed increase (%)</span><br>
+                <span><span class="var-key">Var5</span>: Eruption damage (%)</span><br>
+                <span><span class="var-key">Var6</span>: Eruption radius</span>
               </div>
             </details>
           </div>
         </div>
       </div>
 
-      <!-- Special / Hero -->
+      <!-- Demigod / ETC -->
       <div class="cat-card">
         <div class="cat-header">
           <span class="cat-icon dot-hero"></span>
-          <span class="cat-title">Hero / Special Skills</span>
-          <span class="cat-count">6 skills</span>
+          <span class="cat-title">Demigod / ETC</span>
+          <span class="cat-count">4 skills</span>
         </div>
         <div class="cat-body">
           <div class="skill-row">
@@ -1273,6 +1433,82 @@
           <div class="skill-row">
             <details>
               <summary>
+                <span class="skill-name">Holy Rampage</span>
+                <span class="skill-vars">Var1</span>
+              </summary>
+              <div class="var-def">
+                <span><span class="var-key">Var1</span>: (rolled)</span>
+              </div>
+            </details>
+          </div>
+          <div class="skill-row">
+            <details>
+              <summary>
+                <span class="skill-name">Nuadha Spear of Light</span>
+                <span class="skill-vars">Var1, 3, 4, 5</span>
+              </summary>
+              <div class="var-def">
+                <span><span class="var-key">Var1</span>: Base damage</span><br>
+                <span><span class="var-key">Var3</span>: Bonus damage</span><br>
+                <span><span class="var-key">Var4</span>: Range</span><br>
+                <span><span class="var-key">Var5</span>: AOE</span>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dual Gun -->
+      <div class="cat-card">
+        <div class="cat-header">
+          <span class="cat-icon dot-hero"></span>
+          <span class="cat-title">Dual Gun</span>
+          <span class="cat-count">4 skills</span>
+        </div>
+        <div class="cat-body">
+          <div class="skill-row">
+            <details>
+              <summary>
+                <span class="skill-name">Flash Launcher</span>
+                <span class="skill-vars">Var1, 2, 3</span>
+              </summary>
+              <div class="var-def">
+                <span><span class="var-key">Var1</span>: Bullet usage</span><br>
+                <span><span class="var-key">Var2</span>: Damage</span><br>
+                <span><span class="var-key">Var3</span>: (unlabeled)</span>
+              </div>
+            </details>
+          </div>
+          <div class="skill-row">
+            <details>
+              <summary>
+                <span class="skill-name">Grapple Shot</span>
+                <span class="skill-vars">Var1, 2, 4, 5</span>
+              </summary>
+              <div class="var-def">
+                <span><span class="var-key">Var1</span>: Bullet usage</span><br>
+                <span><span class="var-key">Var2</span>: Damage</span><br>
+                <span><span class="var-key">Var4</span>: Maximum grapple range</span><br>
+                <span><span class="var-key">Var5</span>: Minimum grapple range</span>
+              </div>
+            </details>
+          </div>
+          <div class="skill-row">
+            <details>
+              <summary>
+                <span class="skill-name">Bullet Slide</span>
+                <span class="skill-vars">Var1, 2, 6</span>
+              </summary>
+              <div class="var-def">
+                <span><span class="var-key">Var1</span>: Bullet consumption</span><br>
+                <span><span class="var-key">Var2</span>: Damage per hit</span><br>
+                <span><span class="var-key">Var6</span>: Range</span>
+              </div>
+            </details>
+          </div>
+          <div class="skill-row">
+            <details>
+              <summary>
                 <span class="skill-name">Shooting Rush</span>
                 <span class="skill-vars">Var1, 3, 9</span>
               </summary>
@@ -1286,36 +1522,15 @@
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Holy Flood</span>
-                <span class="skill-vars">Var1</span>
+                <span class="skill-name">Bullet Storm</span>
+                <span class="skill-vars">Var1, 2, 5, 7, 8</span>
               </summary>
               <div class="var-def">
-                <span><span class="var-key">Var1</span>: (rolled)</span>
-              </div>
-            </details>
-          </div>
-          <div class="skill-row">
-            <details>
-              <summary>
-                <span class="skill-name">Nuadha's Spear of Light</span>
-                <span class="skill-vars">Var1, 3, 4, 5</span>
-              </summary>
-              <div class="var-def">
-                <span><span class="var-key">Var1</span>: Base damage</span><br>
-                <span><span class="var-key">Var3</span>: Bonus damage</span><br>
-                <span><span class="var-key">Var4</span>: Range</span><br>
-                <span><span class="var-key">Var5</span>: AOE</span>
-              </div>
-            </details>
-          </div>
-          <div class="skill-row">
-            <details>
-              <summary>
-                <span class="skill-name">Berserk Rage</span>
-                <span class="skill-vars">Var2</span>
-              </summary>
-              <div class="var-def">
-                <span><span class="var-key">Var2</span>: (rolled)</span>
+                <span><span class="var-key">Var1</span>: Per-enemy bullet consumption</span><br>
+                <span><span class="var-key">Var2</span>: Damage per target</span><br>
+                <span><span class="var-key">Var5</span>: Max targets</span><br>
+                <span><span class="var-key">Var7</span>: Range</span><br>
+                <span><span class="var-key">Var8</span>: Max damage (per single unit)</span>
               </div>
             </details>
           </div>
@@ -1327,26 +1542,9 @@
         <div class="cat-header">
           <span class="cat-icon dot-trans"></span>
           <span class="cat-title">Transformation</span>
-          <span class="cat-count">2 skills</span>
+          <span class="cat-count">1 skill</span>
         </div>
         <div class="cat-body">
-          <div class="skill-row">
-            <details>
-              <summary>
-                <span class="skill-name">Battle Dance</span>
-                <span class="skill-vars">Var2, 4–9</span>
-              </summary>
-              <div class="var-def">
-                <span><span class="var-key">Var2</span>: Duration increase</span><br>
-                <span><span class="var-key">Var4</span>: CDR</span><br>
-                <span><span class="var-key">Var5</span>: Range increase (m)</span><br>
-                <span><span class="var-key">Var6</span>: Damage increase</span><br>
-                <span><span class="var-key">Var7</span>: Frequency reduction</span><br>
-                <span><span class="var-key">Var8</span>: Defense reduction</span><br>
-                <span><span class="var-key">Var9</span>: Protection reduction</span>
-              </div>
-            </details>
-          </div>
           <div class="skill-row">
             <details>
               <summary>
@@ -1367,18 +1565,168 @@
         </div>
       </div>
 
+      <!-- Music -->
+      <div class="cat-card">
+        <div class="cat-header">
+          <span class="cat-icon dot-special"></span>
+          <span class="cat-title">Music</span>
+          <span class="cat-count">8 skills</span>
+        </div>
+        <div class="cat-body">
+          <div class="skill-row">
+            <details>
+              <summary>
+                <span class="skill-name">Dance of Death</span>
+                <span class="skill-vars">Var2, 4–9</span>
+              </summary>
+              <div class="var-def">
+                <span><span class="var-key">Var2</span>: Duration increase</span><br>
+                <span><span class="var-key">Var4</span>: CDR</span><br>
+                <span><span class="var-key">Var5</span>: Range increase (m)</span><br>
+                <span><span class="var-key">Var6</span>: Damage increase</span><br>
+                <span><span class="var-key">Var7</span>: Frequency reduction</span><br>
+                <span><span class="var-key">Var8</span>: Defense reduction</span><br>
+                <span><span class="var-key">Var9</span>: Protection reduction</span>
+              </div>
+            </details>
+          </div>
+          <div class="skill-row">
+            <details>
+              <summary>
+                <span class="skill-name">Battlefield Overture</span>
+                <span class="skill-vars">Var1–7</span>
+              </summary>
+              <div class="var-def">
+                <span><span class="var-key">Var1</span>: Cooldown</span><br>
+                <span><span class="var-key">Var2</span>: Start-up time</span><br>
+                <span><span class="var-key">Var3</span>: Duration</span><br>
+                <span><span class="var-key">Var4</span>: Range</span><br>
+                <span><span class="var-key">Var5</span>: Max damage</span><br>
+                <span><span class="var-key">Var6</span>: Min damage</span><br>
+                <span><span class="var-key">Var7</span>: Crit boost</span>
+              </div>
+            </details>
+          </div>
+          <div class="skill-row">
+            <details>
+              <summary>
+                <span class="skill-name">Lullaby</span>
+                <span class="skill-vars">Var1–9</span>
+              </summary>
+              <div class="var-def">
+                <span><span class="var-key">Var1</span>: Cooldown</span><br>
+                <span><span class="var-key">Var2</span>: Launch time</span><br>
+                <span><span class="var-key">Var3</span>: Duration</span><br>
+                <span><span class="var-key">Var4</span>: Range</span><br>
+                <span><span class="var-key">Var5</span>: Max targets</span><br>
+                <span><span class="var-key">Var8</span>: Sleeping chance</span><br>
+                <span><span class="var-key">Var9</span>: Additional damage</span>
+              </div>
+            </details>
+          </div>
+          <div class="skill-row">
+            <details>
+              <summary>
+                <span class="skill-name">Vivace</span>
+                <span class="skill-vars">Var1–7</span>
+              </summary>
+              <div class="var-def">
+                <span><span class="var-key">Var1</span>: Cooldown</span><br>
+                <span><span class="var-key">Var2</span>: Start-up time</span><br>
+                <span><span class="var-key">Var3</span>: Duration</span><br>
+                <span><span class="var-key">Var4</span>: Range</span><br>
+                <span><span class="var-key">Var5</span>: Magic speed</span><br>
+                <span><span class="var-key">Var6</span>: Alchemy speed</span><br>
+                <span><span class="var-key">Var7</span>: Attack speed</span>
+              </div>
+            </details>
+          </div>
+          <div class="skill-row">
+            <details>
+              <summary>
+                <span class="skill-name">Enduring Melody</span>
+                <span class="skill-vars">Var1–10</span>
+              </summary>
+              <div class="var-def">
+                <span><span class="var-key">Var1</span>: Cooldown</span><br>
+                <span><span class="var-key">Var2</span>: Launch time</span><br>
+                <span><span class="var-key">Var3</span>: Duration</span><br>
+                <span><span class="var-key">Var4</span>: Range</span><br>
+                <span><span class="var-key">Var5</span>: Base defense bonus</span><br>
+                <span><span class="var-key">Var6</span>: Base protection bonus</span><br>
+                <span><span class="var-key">Var7</span>: Base mana recovery</span><br>
+                <span><span class="var-key">Var8</span>: Base stamina recovery</span><br>
+                <span><span class="var-key">Var9</span>: Base magic defense bonus</span><br>
+                <span><span class="var-key">Var10</span>: Base magic protection bonus</span>
+              </div>
+            </details>
+          </div>
+          <div class="skill-row">
+            <details>
+              <summary>
+                <span class="skill-name">Harvest Song</span>
+                <span class="skill-vars">Var1–9</span>
+              </summary>
+              <div class="var-def">
+                <span><span class="var-key">Var1</span>: Cooldown</span><br>
+                <span><span class="var-key">Var2</span>: Launch time</span><br>
+                <span><span class="var-key">Var3</span>: Duration</span><br>
+                <span><span class="var-key">Var4</span>: Range</span><br>
+                <span><span class="var-key">Var5</span>: Gathering success rate increase</span><br>
+                <span><span class="var-key">Var6</span>: Production success rate increase (%)</span><br>
+                <span><span class="var-key">Var7</span>: Base gathering speed</span><br>
+                <span><span class="var-key">Var9</span>: Max gathering speed boost</span>
+              </div>
+            </details>
+          </div>
+          <div class="skill-row">
+            <details>
+              <summary>
+                <span class="skill-name">March Song</span>
+                <span class="skill-vars">Var1–6</span>
+              </summary>
+              <div class="var-def">
+                <span><span class="var-key">Var1</span>: Cooldown</span><br>
+                <span><span class="var-key">Var2</span>: Launch time</span><br>
+                <span><span class="var-key">Var3</span>: Duration</span><br>
+                <span><span class="var-key">Var4</span>: Range</span><br>
+                <span><span class="var-key">Var5</span>: Base player movement speed increase (%)</span><br>
+                <span><span class="var-key">Var6</span>: Base pet/partner movement speed increase (%)</span>
+              </div>
+            </details>
+          </div>
+          <div class="skill-row">
+            <details>
+              <summary>
+                <span class="skill-name">Dischord</span>
+                <span class="skill-vars">Var1–7</span>
+              </summary>
+              <div class="var-def">
+                <span><span class="var-key">Var1</span>: Effect duration</span><br>
+                <span><span class="var-key">Var2</span>: Splash range</span><br>
+                <span><span class="var-key">Var3</span>: Splash angle</span><br>
+                <span><span class="var-key">Var4</span>: Base damage</span><br>
+                <span><span class="var-key">Var5</span>: Stun time</span><br>
+                <span><span class="var-key">Var6</span>: Debuff damage (%)</span><br>
+                <span><span class="var-key">Var7</span>: Movement speed reduction (%)</span>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+
       <!-- Transcendence / Passive -->
       <div class="cat-card">
         <div class="cat-header">
           <span class="cat-icon dot-special"></span>
-          <span class="cat-title">Transcendence / Passive</span>
+          <span class="cat-title">Technique</span>
           <span class="cat-count">9 skills</span>
         </div>
         <div class="cat-body">
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Enduring Will</span>
+                <span class="skill-name">Iron Will</span>
                 <span class="skill-vars">Var1</span>
               </summary>
               <div class="var-def">
@@ -1389,7 +1737,7 @@
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Transcendence: Life</span>
+                <span class="skill-name">Vital Surge</span>
                 <span class="skill-vars">Var1, 2</span>
               </summary>
               <div class="var-def">
@@ -1401,7 +1749,7 @@
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Shock Cancellation</span>
+                <span class="skill-name">Dampen Shock</span>
                 <span class="skill-vars">Var1, 2</span>
               </summary>
               <div class="var-def">
@@ -1413,7 +1761,7 @@
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Damage Absorption</span>
+                <span class="skill-name">Blunting Field</span>
                 <span class="skill-vars">Var1, 2</span>
               </summary>
               <div class="var-def">
@@ -1425,7 +1773,7 @@
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Time Warp</span>
+                <span class="skill-name">Time Shift</span>
                 <span class="skill-vars">Var1, 2</span>
               </summary>
               <div class="var-def">
@@ -1437,7 +1785,7 @@
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Fleetness</span>
+                <span class="skill-name">Relentless Assault</span>
                 <span class="skill-vars">Var1, 2, 3, 4, 5</span>
               </summary>
               <div class="var-def">
@@ -1452,7 +1800,7 @@
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Weakness Pierce</span>
+                <span class="skill-name">Exploit Weakness</span>
                 <span class="skill-vars">Var1, 2, 3</span>
               </summary>
               <div class="var-def">
@@ -1465,7 +1813,7 @@
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Element Improve</span>
+                <span class="skill-name">Elemental Attunement</span>
                 <span class="skill-vars">Var1, 6, 7</span>
               </summary>
               <div class="var-def">
@@ -1478,7 +1826,7 @@
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Continuity Attack</span>
+                <span class="skill-name">Redoubled Offensive</span>
                 <span class="skill-vars">Var1, 2</span>
               </summary>
               <div class="var-def">
@@ -1545,7 +1893,7 @@
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Caladbolg II</span>
+                <span class="skill-name">Caladbolg 2</span>
                 <span class="skill-vars">Var2, 3, 5</span>
               </summary>
               <div class="var-def">
@@ -1558,7 +1906,7 @@
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Gate of Babylon</span>
+                <span class="skill-name">King's Treasure</span>
                 <span class="skill-vars">Var3, 5, 6, 8–10</span>
               </summary>
               <div class="var-def">
@@ -1574,7 +1922,7 @@
           <div class="skill-row">
             <details>
               <summary>
-                <span class="skill-name">Spinning Slash (Hero)</span>
+                <span class="skill-name">Spinning Slash</span>
                 <span class="skill-vars">Var1, 3, 7</span>
               </summary>
               <div class="var-def">
@@ -1646,6 +1994,10 @@
       </div>
 
     </div>
+  </div>
+
+  <div style="text-align:center; color:var(--text-dim); font-size:12px; margin: 8px 0 16px; font-style:italic;">
+    * and many more! (existing reforges are all covered)
   </div>
 
   <footer>
