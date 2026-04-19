@@ -562,7 +562,14 @@
     <div class="section-title">3. Base Stat Affixes (All Grades)</div>
     <div class="info-box">
       The following base stats can appear on any reforged item regardless of tool grade.
-      <strong>fast_attack</strong> has a reduced rate (2,000 vs. 10,000 for others).
+      <strong>fast_attack</strong> has a reduced rate (2,000 vs. 10,000 for others).<br><br>
+      <strong>Stat scaling values (per reforge level):</strong><br>
+      STR / WILL / LUCK — min: <strong>15</strong>, per level: <strong>+15</strong> &nbsp;|&nbsp;
+      INT / DEX — min: <strong>20</strong>, per level: <strong>+20</strong><br>
+      Max HP / Stamina — min: <strong>50</strong>, per level: <strong>+65</strong> &nbsp;|&nbsp;
+      Max MP — min: <strong>30</strong>, per level: <strong>+45</strong><br>
+      Defense — min: <strong>10</strong>, per level: <strong>+10</strong> &nbsp;|&nbsp;
+      Protection — min: <strong>5</strong>, per level: <strong>+5</strong>
     </div>
     <div class="stat-grid">
       <div class="stat-pill">Max HP</div>
@@ -2427,19 +2434,9 @@
         <div class="cat-header">
           <span class="cat-icon dot-hero"></span>
           <span class="cat-title">Falcon / Demigod</span>
-          <span class="cat-count">5 skills</span>
+          <span class="cat-count">4 skills</span>
         </div>
         <div class="cat-body">
-          <div class="skill-row">
-            <details>
-              <summary>
-                <span class="skill-name">Spear of Light</span>
-                <span class="skill-vars"></span>
-              </summary>
-              <div class="var-def">
-              </div>
-            </details>
-          </div>
           <div class="skill-row">
             <details>
               <summary>
@@ -2488,7 +2485,7 @@
         <div class="cat-header">
           <span class="cat-icon dot-hero"></span>
           <span class="cat-title">Demigod / ETC</span>
-          <span class="cat-count">4 skills</span>
+          <span class="cat-count">2 skills</span>
         </div>
         <div class="cat-body">
           <div class="skill-row">
@@ -2517,31 +2514,6 @@
                 <span><span class="var-key">Var4</span>: Max charge damage bonus (%)</span><br>
                 <span><span class="var-key">Var5</span>: (rolled)</span><br>
                 <span><span class="var-key">Var9</span>: (rolled)</span>
-              </div>
-            </details>
-          </div>
-          <div class="skill-row">
-            <details>
-              <summary>
-                <span class="skill-name">Holy Rampage</span>
-                <span class="skill-vars">Var1</span>
-              </summary>
-              <div class="var-def">
-                <span><span class="var-key">Var1</span>: (rolled)</span>
-              </div>
-            </details>
-          </div>
-          <div class="skill-row">
-            <details>
-              <summary>
-                <span class="skill-name">Nuadha Spear of Light</span>
-                <span class="skill-vars">Var1, 3, 4, 5</span>
-              </summary>
-              <div class="var-def">
-                <span><span class="var-key">Var1</span>: Base damage</span><br>
-                <span><span class="var-key">Var3</span>: Bonus damage</span><br>
-                <span><span class="var-key">Var4</span>: Range</span><br>
-                <span><span class="var-key">Var5</span>: AOE</span>
               </div>
             </details>
           </div>
@@ -2651,33 +2623,7 @@
         </div>
       </div>
 
-      <!-- Transformation / Battle Dance -->
-      <div class="cat-card">
-        <div class="cat-header">
-          <span class="cat-icon dot-trans"></span>
-          <span class="cat-title">Transformation</span>
-          <span class="cat-count">1 skill</span>
-        </div>
-        <div class="cat-body">
-          <div class="skill-row">
-            <details>
-              <summary>
-                <span class="skill-name">Dragon Rain of Thunder</span>
-                <span class="skill-vars">Var1–6, 20</span>
-              </summary>
-              <div class="var-def">
-                <span><span class="var-key">Var1</span>: Max damage</span><br>
-                <span><span class="var-key">Var2</span>: % damage</span><br>
-                <span><span class="var-key">Var3</span>: Range</span><br>
-                <span><span class="var-key">Var4</span>: Radius</span><br>
-                <span><span class="var-key">Var5</span>: Interval</span><br>
-                <span><span class="var-key">Var6</span>: Duration</span><br>
-                <span><span class="var-key">Var20</span>: (unlabeled)</span>
-              </div>
-            </details>
-          </div>
-        </div>
-      </div>
+
 
       <!-- Music -->
       <div class="cat-card">
@@ -2952,102 +2898,7 @@
         </div>
       </div>
 
-      <!-- Fate / Hero (60xxx) -->
-      <div class="cat-card">
-        <div class="cat-header">
-          <span class="cat-icon dot-hero"></span>
-          <span class="cat-title">Fate / Hero Skills (Custom)</span>
-          <span class="cat-count">6 skills</span>
-        </div>
-        <div class="cat-body">
-          <div class="skill-row">
-            <details>
-              <summary>
-                <span class="skill-name">Excalibur</span>
-                <span class="skill-vars">Var1–5</span>
-              </summary>
-              <div class="var-def">
-                <span><span class="var-key">Var1</span>: CDR</span><br>
-                <span><span class="var-key">Var2</span>: Max damage</span><br>
-                <span><span class="var-key">Var3</span>: Damage % bonus</span><br>
-                <span><span class="var-key">Var4</span>: AOE increase</span><br>
-                <span><span class="var-key">Var5</span>: Radius increase (m)</span>
-              </div>
-            </details>
-          </div>
-          <div class="skill-row">
-            <details>
-              <summary>
-                <span class="skill-name">Invisible Air</span>
-                <span class="skill-vars">Var1, 3, 7</span>
-              </summary>
-              <div class="var-def">
-                <span><span class="var-key">Var1</span>: Damage</span><br>
-                <span><span class="var-key">Var3</span>: Target AOE</span><br>
-                <span><span class="var-key">Var7</span>: CDR</span>
-              </div>
-            </details>
-          </div>
-          <div class="skill-row">
-            <details>
-              <summary>
-                <span class="skill-name">Unlimited Blade Works</span>
-                <span class="skill-vars">Var3, 5, 6, 8–10</span>
-              </summary>
-              <div class="var-def">
-                <span><span class="var-key">Var3</span>: AOE</span><br>
-                <span><span class="var-key">Var5</span>: Duration</span><br>
-                <span><span class="var-key">Var6</span>: CDR</span><br>
-                <span><span class="var-key">Var8</span>: 1st sword damage increase</span><br>
-                <span><span class="var-key">Var9</span>: 2nd sword damage increase</span><br>
-                <span><span class="var-key">Var10</span>: 3rd sword damage increase</span>
-              </div>
-            </details>
-          </div>
-          <div class="skill-row">
-            <details>
-              <summary>
-                <span class="skill-name">Caladbolg 2</span>
-                <span class="skill-vars">Var2, 3, 5</span>
-              </summary>
-              <div class="var-def">
-                <span><span class="var-key">Var2</span>: Max damage</span><br>
-                <span><span class="var-key">Var3</span>: Damage % bonus</span><br>
-                <span><span class="var-key">Var5</span>: Radius increase (m)</span>
-              </div>
-            </details>
-          </div>
-          <div class="skill-row">
-            <details>
-              <summary>
-                <span class="skill-name">King's Treasure</span>
-                <span class="skill-vars">Var3, 5, 6, 8–10</span>
-              </summary>
-              <div class="var-def">
-                <span><span class="var-key">Var3</span>: AOE</span><br>
-                <span><span class="var-key">Var5</span>: Duration increase</span><br>
-                <span><span class="var-key">Var6</span>: Cast time reduction</span><br>
-                <span><span class="var-key">Var8</span>: 1st damage % increase</span><br>
-                <span><span class="var-key">Var9</span>: 2nd damage % increase</span><br>
-                <span><span class="var-key">Var10</span>: 3rd damage % increase</span>
-              </div>
-            </details>
-          </div>
-          <div class="skill-row">
-            <details>
-              <summary>
-                <span class="skill-name">Spinning Slash</span>
-                <span class="skill-vars">Var1, 3, 7</span>
-              </summary>
-              <div class="var-def">
-                <span><span class="var-key">Var1</span>: Damage</span><br>
-                <span><span class="var-key">Var3</span>: AOE</span><br>
-                <span><span class="var-key">Var7</span>: CDR (max lv. 14)</span>
-              </div>
-            </details>
-          </div>
-        </div>
-      </div>
+
 
       <!-- Life Skills (EXP) -->
       <div class="cat-card">
@@ -3094,7 +2945,7 @@
         <div class="cat-body">
           <div class="skill-row">
             <span class="skill-name">Commerce Mastery</span>
-            <span class="skill-vars">Var1</span>
+            <span class="skill-vars">Var1 &nbsp;⚠ non-stackable</span>
           </div>
           <div class="skill-row">
             <span class="skill-name">Emergency Escape</span>
@@ -3115,7 +2966,7 @@
   </div>
 
   <footer>
-    CoPenogi Private Server · Reforge Reference v1.0 · All grades: R / SR / SSR / UR
+    CoPenogi Private Server · Reforge Reference v1.1 · All grades: R / SR / SSR / UR
   </footer>
 
 </div>
